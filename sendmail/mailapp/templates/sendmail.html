@@ -1,0 +1,25 @@
+<html>
+<head>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd',yearRange: '1910:2000',changeMonth: true,
+            changeYear: true });
+  });
+  </script>
+</head> 
+<td>
+<form action="/mailapp/sendmail/" method="post" enctype="application/json">
+	{% csrf_token %}
+	Email:<input type="email" name='to' length=20/><br>
+	cc:<input type="bcc" name='cc'/><br>
+	bcc:<input type="email" name='bcc'/><br>
+	Subject:<textarea name='subject' rows="5" cols="50">subject</textarea><br>
+	Message:<textarea name='message' rows="20" cols="50">message</textarea><br>
+	<input type="submit" value="login" class="btn btn-primary"><br>
+</form>
+</td>
+</html>
